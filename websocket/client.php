@@ -33,5 +33,5 @@ function send($data, $type = 'text', $masked = false)
     return $client ->send(swoole_websocket_server::pack($data, $_type, true, $masked));
 }
 
-$text = isset($_GET('text')) ? $_GET['text'] : time();
+$text = isset($_GET['text']) ? $_GET['text'] : time();
 send($text."\r\n");
