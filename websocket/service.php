@@ -5,7 +5,7 @@ $serv = new swoole_websocket_server("192.168.146.128", 9502);
 
 $serv->on('Open', function($server, $req) {
     echo "connection open: ".$req->fd."\r\n";
-    file_put_contents( __DIR__ .'/log.txt' , $request->fd);
+    file_put_contents( __DIR__ .'/log.txt' , $req->fd);
 });
 
 $serv->on('Message', function($serv, $server, $frame) {
