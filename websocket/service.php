@@ -7,7 +7,7 @@ $serv->on('Open', function($server, $req) {
     echo "connection open: ".$req->fd."\r\n";
 });
 
-$serv->on('Message', function($server, $frame) {
+$serv->on('Message', function($serv, $server, $frame) {
     echo "message: ".$frame->data."\r\n";
     $server->push($frame->fd, json_encode(["hello", "world"]));
     $start_fd = 0;
