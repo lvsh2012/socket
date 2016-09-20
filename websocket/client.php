@@ -1,5 +1,5 @@
 <?php
-$client = new swoole_client(SWOOLE_SOCK_TCP, SWOOLE_SOCK_ASYNC);
+$client = new \swoole_client(SWOOLE_SOCK_TCP);
 //设置事件回调函数
 $client->on("connect", function($cli) {
     $cli->send("hello world\r\n");

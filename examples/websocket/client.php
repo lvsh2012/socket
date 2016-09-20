@@ -11,7 +11,7 @@ $n_client = $opt['c'];
 $count = $opt['n'];
 $size = empty($opt['k']) ? 0 : $opt['k'];
 require __DIR__ . "/WebSocketClient.php";
-$host = '127.0.0.1';
+$host = '192.168.146.128';
 $prot = 9501;
 
 for ($i = 0; $i < $n_client; $i++)

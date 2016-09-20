@@ -1,6 +1,6 @@
 <?php
 //$server = new swoole_websocket_server("0.0.0.0", 9501);
-$server = new swoole_websocket_server("0.0.0.0", 9501, SWOOLE_BASE);
+$server = new swoole_websocket_server("192.168.146.128", 9501, SWOOLE_BASE);
 //$server->addlistener('0.0.0.0', 9502, SWOOLE_SOCK_UDP);
 //$server->set(['worker_num' => 4,
 //    'task_worker_num' => 4,
