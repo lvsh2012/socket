@@ -1,4 +1,20 @@
 <?php
+
+function getConnectionList($serv){
+    $start_fd = 0;
+    while(true)
+    {
+        $conn_list = $serv->connection_list($start_fd, 10);
+        if($conn_list===false or count($conn_list) === 0)
+        {
+            echo "finish\n";
+            break;
+        }
+        $start_fd = end($conn_list);
+        return $conn_list;
+    }
+}
+
 $serv = new swoole_websocket_server("192.168.146.128", 9502);
 
 $serv->on('Open', function($server, $req) {
@@ -20,18 +36,3 @@ $serv->on('Close', function($server, $fd) {
 
 $serv->start();
 
-
-function getConnectionList($serv){
-    $start_fd = 0;
-    while(true)
-    {
-        $conn_list = $serv->connection_list($start_fd, 10);
-        if($conn_list===false or count($conn_list) === 0)
-        {
-            echo "finish\n";
-            break;
-        }
-        $start_fd = end($conn_list);
-        return $conn_list;
-    }
-}
