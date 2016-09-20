@@ -8,7 +8,7 @@ $serv->on('Open', function($server, $req) {
     file_put_contents( __DIR__ .'/log.txt' , $req->fd);
 });
 
-$serv->on('Message', function($serv, $server, $frame) {
+$serv->on('Message', function($server, $frame) {
     echo "message: ".$frame->data."\r\n";
     $data = $frame->data;
     $m = file_get_contents( __DIR__ .'/log.txt');
@@ -17,6 +17,7 @@ $serv->on('Message', function($serv, $server, $frame) {
         $server->push($i, $data );
     }
 });
+
 
 $serv->on('Close', function($server, $fd) {
     echo "connection close: ".$fd."\r\n";
