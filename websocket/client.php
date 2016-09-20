@@ -16,7 +16,7 @@ $client->on("close", function($cli){
 //发起网络连接
 $client->connect('192.168.146.128', 9502, 0.5);
 
-function send($data, $type = 'text', $masked = false)
+function send($client, $data, $type = 'text', $masked = false)
 {
     switch($type)
     {
@@ -34,4 +34,4 @@ function send($data, $type = 'text', $masked = false)
 }
 
 $text = isset($_GET['text']) ? $_GET['text'] : time();
-send($text."\r\n");
+send($client, $text."\r\n");
